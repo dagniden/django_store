@@ -1,0 +1,94 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Фильмы",
+        "description": "Категория по фильмы"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Игры",
+        "description": "Категория с компьютерными играми"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Книги",
+        "description": "Категория продуктов книги"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Музыка",
+        "description": "Категория продуктов музыка"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Картины",
+        "description": "Категория продуктов картины"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Dispatch",
+        "description": "Dispatch — эпизодическая приключенческая игра, разработанная студией AdHoc Studio в сотрудничестве с Critical Role Productions. Игра состоит из восьми эпизодов, первые два из которых вышли для Windows и PlayStation 5 22 октября 2025 года.",
+        "image": "products/image/Dispatch_Poster.jpeg",
+        "category": 2,
+        "price": "1000.00",
+        "created_at": "2025-11-23T09:51:12.580Z",
+        "updated_at": "2025-11-23T09:52:22.866Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Джазз 101",
+        "description": "Сборник джазз музыки",
+        "image": "",
+        "category": 4,
+        "price": "500.00",
+        "created_at": "2025-11-23T16:36:30.588Z",
+        "updated_at": "2025-11-23T16:36:30.588Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Рок 101",
+        "description": "Сборник рок музыки",
+        "image": "",
+        "category": 4,
+        "price": "400.00",
+        "created_at": "2025-11-23T16:36:51.295Z",
+        "updated_at": "2025-11-23T16:46:26.612Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Рок 102",
+        "description": "Сборник хитов рок музыки",
+        "image": "",
+        "category": 4,
+        "price": "666.00",
+        "created_at": "2025-11-23T16:37:21.253Z",
+        "updated_at": "2025-11-23T16:37:21.253Z"
+    }
+}
+]
