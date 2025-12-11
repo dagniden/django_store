@@ -2,8 +2,21 @@
 {% load static %}
 
 {% block content %}
+<main>
+  <section class="py-2 text-center container">
+    <div class="row py-lg-2">
+      <div class="col-lg-6 col-md-8 mx-auto"><h1 class="fw-light">Магазин цифровых товаров</h1>
+        <p class="lead text-body-secondary">Магазин цифровых товаров - это интернет-магазин, предлагащий широкий спектр
+          товаров по доступным ценам. Мы предлагаем нашим клиентам только качественные товары, которые соответствуют
+          всем нормам и стандартам качества.</p>
+        </div>
+    </div>
+  </section>
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
+      <!-- Пагинация над товарами -->
+      {% include "pagination.html" with page=products %}
+
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for product in products %}
           <div class="col">
@@ -23,7 +36,7 @@
                 <p class="card-text">{{ product.description|truncatewords:100 }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                    <a class="btn btn-primary" href="{% url 'catalog:product_details' product.pk %}" role="button">Подробнее</a>
                     <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
                   </div>
                   <small class="text-body-secondary">{{ product.price }} ₽</small>
