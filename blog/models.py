@@ -25,9 +25,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
 
-    views_count = models.IntegerField(
-        default=0, verbose_name="Количество просмотров"
-    )
+    views_count = models.IntegerField(default=0, verbose_name="Количество просмотров")
 
     is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
 

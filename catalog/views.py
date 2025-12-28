@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, HttpResponse, get_object_or_404
-from django.views.generic import ListView, DetailView, TemplateView
+from django.shortcuts import HttpResponse, get_object_or_404, render
+from django.views.generic import DetailView, ListView, TemplateView
+
 from catalog.models import Product
 
 
