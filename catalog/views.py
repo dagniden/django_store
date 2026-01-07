@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import HttpResponse, get_object_or_404, render
 from django.urls import reverse_lazy
@@ -15,7 +16,7 @@ class ProductListView(ListView):
     paginate_by = 20
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = "product_detail.html"
     form_class = ProductForm
@@ -23,14 +24,14 @@ class ProductDetailView(DetailView):
     pk_url_kwarg = "pk"
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     template_name = "product_form.html"
     form_class = ProductForm
     success_url = reverse_lazy("catalog:index")
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     template_name = "product_form.html"
     form_class = ProductForm
@@ -38,7 +39,7 @@ class ProductUpdateView(UpdateView):
     success_url = reverse_lazy("catalog:index")
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = "product_confirm_delete.html"
     pk_url_kwarg = "pk"
@@ -47,14 +48,3 @@ class ProductDeleteView(DeleteView):
 
 class ContactsView(TemplateView):
     template_name = "contacts.html"
-
-
-# def contacts(request):
-#     if request.method == "POST":
-#         name = request.POST.get("name")
-#         phone = request.POST.get("phone")
-#         message = request.POST.get("message")
-#         print(f"Получено сообщение от {name} ({phone}): {message}")
-#         return HttpResponse("Сообщение успешно отправлено!")
-#
-#     return render(request, "contacts.html")
