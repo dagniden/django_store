@@ -2,6 +2,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
+          {% if user.is_authenticated %}
+            <h4 class="text-white">Привет, {{ user.first_name|default:user.username }}!</h4>
+            <p class="text-white-50">Добро пожаловать в магазин игр. Вы авторизованы как {{ user.email }}</p>
+          {% else %}
+            <h4 class="text-white">Добро пожаловать!</h4>
+            <p class="text-white-50">Войдите в систему или зарегистрируйтесь, чтобы получить доступ ко всем возможностям магазина</p>
+          {% endif %}
           </div>
         <div class="col-sm-4 offset-md-1 py-4"><h4>Навигация</h4>
           <ul class="list-unstyled">
@@ -9,6 +16,18 @@
             <li><a href="{% url 'blog:post_list' %}" class="text-white">Блог</a></li>
             <li><a href="{% url 'catalog:contacts' %}" class="text-white">Контакты</a></li>
             <li><a href="{% url 'catalog:product_create' %}" class="text-white">Добавить продукт</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'users:profile' %}" class="text-white">Мой профиль</a></li>
+            <li>
+                <form method="post" action="{% url 'users:logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-link text-white text-decoration-none p-0" style="border: none; background: none; cursor: pointer;">Выйти</button>
+                </form>
+            </li>
+            {% else %}
+            <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+            <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
