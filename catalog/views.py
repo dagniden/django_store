@@ -11,6 +11,7 @@ from catalog.models import Product
 
 class ProductListView(ListView):
     model = Product
+    queryset = Product.objects.filter(published=True)
     template_name = "index.html"
     context_object_name = "products"
     paginate_by = 20
