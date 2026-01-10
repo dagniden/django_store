@@ -6,17 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalog', '0001_initial'),
+        ("catalog", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='product',
-            options={'permissions': [('can_unpublish_product', 'Can unpublish product'), ('can_delete_product', 'Can delete product')], 'verbose_name': 'Продукт', 'verbose_name_plural': 'Продукты'},
+            name="product",
+            options={
+                "permissions": [
+                    ("can_unpublish_product", "Can unpublish product"),
+                    ("can_delete_product", "Can delete product"),
+                ],
+                "verbose_name": "Продукт",
+                "verbose_name_plural": "Продукты",
+            },
         ),
         migrations.AddField(
-            model_name='product',
-            name='published',
-            field=models.BooleanField(default=False, verbose_name='Опубликован'),
+            model_name="product",
+            name="published",
+            field=models.BooleanField(default=False, verbose_name="Опубликован"),
         ),
     ]
