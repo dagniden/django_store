@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
+from operator import truediv
 from pathlib import Path
 from decouple import config
 from django.conf.global_settings import MEDIA_URL
@@ -150,3 +151,12 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'catalog:index'
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': 'redis://localhost:6379/1',
+        }
+    }
